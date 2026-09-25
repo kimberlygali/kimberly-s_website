@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio website of Kimberly C. Gali." />
+  <title>Kimberly C. Gali | My Little Corner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="cursor-heart" aria-hidden="true">♡</div>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <a class="brand" href="#home">
+      <span class="brand-heart">♡</span>
+      Kimberly C. Gali
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+    <nav id="navMenu">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#education">Education</a>
+      <a href="#goals">Goals</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero section" id="home">
+      <div class="doodle doodle-heart">♡</div>
+      <div class="doodle doodle-star">✦</div>
+      <div class="doodle doodle-sparkle">✧</div>
+
+      <div class="hero-photo-wrap reveal">
+        <div class="tape tape-left"></div>
+        <div class="tape tape-right"></div>
+        <div class="photo-card">
+          <div class="photo-placeholder">
+            <span>📷</span>
+            <p>Add your photo here</p>
+            <small>Replace <b>profile.jpg</b></small>
+          </div>
+          <p class="photo-caption">just a girl with big dreams ♡</p>
+        </div>
+      </div>
+
+      <div class="hero-content reveal">
+        <span class="eyebrow">WELCOME TO MY LITTLE CORNER ✿</span>
+        <h1>Hi, I'm <span>Kimberly<br>C. Gali</span> ♡</h1>
+        <p class="hero-subtitle">
+          A 2nd year <b>BSIS student</b> majoring in Business Analytics,
+          with a love for technology, creativity, and learning new things.
+        </p>
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">Get to know me ✦</a>
+          <a href="#contact" class="btn btn-outline">Let's connect ♡</a>
+        </div>
+        <div class="mini-facts">
+          <span>🎓 BSIS Student</span>
+          <span>💻 Future IT Professional</span>
+          <span>🦋 Dreamer & Learner</span>
+        </div>
+      </div>
+
+      <aside class="identity-card reveal">
+        <div class="identity-top">
+          <span class="tiny-icon">☻</span>
+          <span>Quick Facts</span>
+          <span class="smile">☺</span>
+        </div>
+        <div class="fact"><span>👤</span><div><b>Nickname</b><p>Kim</p></div></div>
+        <div class="fact"><span>🎂</span><div><b>Age</b><p>19 Years Old</p></div></div>
+        <div class="fact"><span>🎉</span><div><b>Birthday</b><p>January 28, 2007</p></div></div>
+        <div class="fact"><span>📍</span><div><b>Address</b><p>Brgy Suizo Redcross,<br>Tarlac City, Tarlac</p></div></div>
+        <div class="fact"><span>🎓</span><div><b>Course / Year</b><p>2nd Year BSIS<br>Major in Business Analytics</p></div></div>
+        <div class="fact"><span>🏫</span><div><b>School</b><p>Tarlac State University<br>San Isidro Campus</p></div></div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+      <div class="section-heading reveal">
+        <span class="section-kicker">A LITTLE ABOUT ME</span>
+        <h2>Who is <span>Kim?</span> ♡</h2>
+        <p>More than just a student — I'm a curious person with big dreams and a kind heart.</p>
+      </div>
+
+      <div class="about-grid">
+        <article class="paper-card pink reveal">
+          <span class="card-icon">♡</span>
+          <h3>About Me</h3>
+          <p>
+            Hi! I'm <b>Kimberly C. Gali</b>, but you can call me Kim.
+            I'm 19 years old and currently a 2nd year Bachelor of Science
+            in Information System student, majoring in Business Analytics
+            at Tarlac State University – San Isidro Campus.
+          </p>
+          <p>
+            I'm a simple girl with big dreams, a curious mind, and a heart
+            that cares deeply. I enjoy exploring new ideas, learning new
+            skills, and making the most out of every opportunity.
+          </p>
+          <div class="signature">— Kim ♡</div>
+        </article>
+
+        <article class="quote-card reveal">
+          <span class="quote-mark">“</span>
+          <p>Small steps every day can lead to beautiful places.</p>
+          <span class="quote-mark end">”</span>
+          <div class="butterfly">🦋</div>
+        </article>
+
+        <article class="paper-card lavender reveal">
+          <span class="card-icon">✦</span>
+          <h3>My Vibe</h3>
+          <div class="vibe-list">
+            <span>🌷 Soft-hearted</span>
+            <span>💡 Curious</span>
+            <span>🦋 Independent</span>
+            <span>✨ Creative</span>
+            <span>🤍 Caring</span>
+            <span>🌱 Always learning</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section class="section hobbies-section" id="hobbies">
+      <div class="section-heading reveal">
+        <span class="section-kicker">THINGS I LOVE</span>
+        <h2>My Hobbies <span>♡</span></h2>
+        <p>These are some of the little things that make me happy.</p>
+      </div>
+
+      <div class="hobby-grid">
+        <div class="hobby-card reveal"><div class="hobby-icon">🎮</div><h3>Playing Games</h3><p>Relaxing, having fun, and enjoying game time.</p></div>
+        <div class="hobby-card reveal"><div class="hobby-icon">🍳</div><h3>Cooking</h3><p>Trying recipes and creating something delicious.</p></div>
+        <div class="hobby-card reveal"><div class="hobby-icon">🎧</div><h3>Listening to Music</h3><p>My favorite way to relax and enjoy my mood.</p></div>
+        <div class="hobby-card reveal"><div class="hobby-icon">💃</div><h3>Dancing</h3><p>Expressing myself through movement and music.</p></div>
+        <div class="hobby-card reveal"><div class="hobby-icon">🎤</div><h3>Singing</h3><p>A fun way to express my feelings and energy.</p></div>
+      </div>
+    </section>
+
+    <!-- INTERESTS + PERSONALITY -->
+    <section class="section interests-section">
+      <div class="two-column">
+        <div class="section-heading left reveal">
+          <span class="section-kicker">WHAT EXCITES ME</span>
+          <h2>My Interests <span>✦</span></h2>
+        </div>
+        <div class="interest-list reveal">
+          <div class="interest-item"><span>👩🏻‍💻</span><div><b>Programming</b><small>Building and exploring with code.</small></div></div>
+          <div class="interest-item"><span>💡</span><div><b>Learning New Things</b><small>Always curious about something new.</small></div></div>
+          <div class="interest-item"><span>💻</span><div><b>Technology & Computers</b><small>Discovering how technology works.</small></div></div>
+          <div class="interest-item"><span>🤝</span><div><b>Friends & Family</b><small>Spending meaningful time with people I love.</small></div></div>
+        </div>
+      </div>
+
+      <div class="personality-box reveal">
+        <div class="section-heading left">
+          <span class="section-kicker">THE PERSON BEHIND THE SCREEN</span>
+          <h2>My Personality <span>🦋</span></h2>
+        </div>
+        <div class="personality-grid">
+          <div><span>🤍</span><b>Caring</b><small>I value the people around me.</small></div>
+          <div><span>💡</span><b>Creative</b><small>I enjoy turning ideas into something real.</small></div>
+          <div><span>🦋</span><b>Independent</b><small>I believe in growing through my own experiences.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section education-section" id="education">
+      <div class="section-heading reveal">
+        <span class="section-kicker">MY JOURNEY SO FAR</span>
+        <h2>Education <span>🎓</span></h2>
+        <p>Every chapter is part of the journey toward my dreams.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">🎓</div>
+          <div class="timeline-content">
+            <span class="year">2024 – 2025</span>
+            <h3>Senior High School (SHS)</h3>
+            <p class="school">📍 Tarlac National High School</p>
+            <p>Graduated – Grade 12</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot">🎒</div>
+          <div class="timeline-content">
+            <span class="year">2022 – 2023</span>
+            <h3>Junior High School (JHS)</h3>
+            <p class="school">📍 Tarlac National High School</p>
+            <p>Graduated – Grade 10</p>
+          </div>
+        </div>
+
+        <div class="education-note reveal">
+          <span>📚</span>
+          <p>“Education is the key to a brighter future.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section class="section goals-section" id="goals">
+      <div class="goal-paper reveal">
+        <div class="goal-decoration">✦</div>
+        <span class="section-kicker">LOOKING AHEAD</span>
+        <h2>My Goals & Dreams <span>🎯</span></h2>
+        <p>
+          My goal is to <b>finish my studies</b>, build a successful career
+          in the <b>IT field</b>, and continue improving my skills.
+          I dream of creating meaningful projects that can help others
+          while achieving financial independence, making my family proud,
+          and becoming the best version of myself.
+        </p>
+
+        <div class="dream-steps">
+          <div><span>01</span><b>Finish My Studies</b><small>Keep learning and complete my degree.</small></div>
+          <div><span>02</span><b>Build My Career</b><small>Grow into a successful IT professional.</small></div>
+          <div><span>03</span><b>Create Meaningful Projects</b><small>Use technology to help and inspire others.</small></div>
+          <div><span>04</span><b>Make My Family Proud</b><small>Work toward independence and a meaningful life.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="contact-card reveal">
+        <div class="contact-left">
+          <span class="section-kicker">LET'S CONNECT! 💌</span>
+          <h2>I'd love to<br><span>hear from you.</span></h2>
+          <p>Feel free to reach out through my email or social media accounts. Let's be friends! ♡</p>
+          <div class="contact-buttons">
+            <a class="social-btn" href="mailto:Kgali7073@gmail.com">📧 Email Me</a>
+            <a class="social-btn" href="https://www.facebook.com/" target="_blank" rel="noopener">📘 Facebook</a>
+            <a class="social-btn" href="https://www.instagram.com/somewhere.kim/" target="_blank" rel="noopener">📸 Instagram</a>
+            <a class="social-btn" href="https://www.tiktok.com/@kimchi.yen28" target="_blank" rel="noopener">🎵 TikTok @kimchi.yen28</a>
+            <a class="social-btn" href="https://www.tiktok.com/@kimgali_" target="_blank" rel="noopener">🎵 TikTok @kimgali_</a>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <div class="contact-detail"><span>📧</span><div><small>Email</small><b>Kgali7073@gmail.com</b></div></div>
+          <div class="contact-detail"><span>📘</span><div><small>Facebook</small><b>Kim Gali</b></div></div>
+          <div class="contact-detail"><span>📸</span><div><small>Instagram</small><b>@somewhere.kim</b></div></div>
+          <div class="contact-detail"><span>🎵</span><div><small>TikTok</small><b>@kimchi.yen28</b></div></div>
+          <div class="contact-detail"><span>🎵</span><div><small>TikTok</small><b>@kimgali_</b></div></div>
+          <div class="contact-sticker">♡<br><small>stay kind<br>keep dreaming</small></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>Kimberly C. Gali ♡</div>
+    <div>Dream ✦ Learn ✦ Grow ✦ Achieve</div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast">Welcome to Kim's little corner! ♡</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

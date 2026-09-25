@@ -1,0 +1,643 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #263b62;
+  --muted: #64718c;
+  --cream: #fffaf4;
+  --paper: #fffdf9;
+  --blue: #dce9fb;
+  --blue-deep: #9eb8e7;
+  --pink: #f7dfe5;
+  --pink-deep: #d895a7;
+  --lavender: #e8e0f7;
+  --lavender-deep: #a895d2;
+  --mint: #e2eee7;
+  --yellow: #f7edcf;
+  --shadow: 0 18px 45px rgba(54, 72, 112, .12);
+  --radius: 28px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+body.dark {
+  --ink: #eef3ff;
+  --muted: #b8c2d8;
+  --cream: #111827;
+  --paper: #182235;
+  --blue: #1e314e;
+  --blue-deep: #5475aa;
+  --pink: #3c2832;
+  --pink-deep: #d995aa;
+  --lavender: #302941;
+  --lavender-deep: #a795d6;
+  --mint: #23372f;
+  --yellow: #3c3523;
+  --shadow: 0 18px 45px rgba(0,0,0,.25);
+}
+
+body.dark .navbar { background: rgba(17, 24, 39, .88); }
+body.dark .photo-card,
+body.dark .paper-card,
+body.dark .identity-card,
+body.dark .hobby-card,
+body.dark .goal-paper,
+body.dark .contact-card { border-color: rgba(255,255,255,.08); }
+
+a { color: inherit; text-decoration: none; }
+
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(90deg, #9eb8e7, #d895a7, #a895d2);
+  z-index: 9999;
+}
+
+.navbar {
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  background: rgba(255, 250, 244, .88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(38,59,98,.07);
+}
+
+.brand {
+  font-family: "Patrick Hand", cursive;
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.brand-heart { color: #d895a7; font-size: 32px; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+nav a, .theme-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s;
+}
+
+nav a:hover, nav a.active, .theme-toggle:hover {
+  background: var(--lavender);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 27px;
+  color: var(--ink);
+}
+
+.section {
+  width: min(1180px, 90%);
+  margin: auto;
+  padding: 100px 0;
+}
+
+.hero {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: 270px 1fr 310px;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 5% -10% 5% -10%;
+  z-index: -1;
+  background: linear-gradient(135deg, var(--blue), #f8f4ef 48%, var(--lavender));
+  border-radius: 45% 55% 50% 45%;
+  opacity: .85;
+}
+
+.hero-photo-wrap {
+  position: relative;
+  transform: rotate(-4deg);
+}
+
+.photo-card {
+  background: var(--paper);
+  padding: 14px 14px 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(38,59,98,.06);
+}
+
+.photo-placeholder {
+  height: 330px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.9) 0 4px, transparent 5px),
+    linear-gradient(135deg, #cdddf3, #f3dce4);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #546786;
+  gap: 8px;
+}
+
+.photo-placeholder span { font-size: 54px; }
+.photo-placeholder p { font-weight: 700; }
+.photo-placeholder small { opacity: .75; }
+
+.photo-caption {
+  font-family: "Patrick Hand", cursive;
+  font-size: 21px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.tape {
+  width: 80px; height: 25px;
+  position: absolute;
+  background: rgba(245,224,179,.65);
+  z-index: 2;
+}
+.tape-left { top: -11px; left: 28px; transform: rotate(-13deg); }
+.tape-right { top: -10px; right: 20px; transform: rotate(12deg); }
+
+.hero-content { padding-top: 10px; }
+
+.eyebrow, .section-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+  color: var(--pink-deep);
+}
+
+.hero h1 {
+  font-family: "Patrick Hand", cursive;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: .92;
+  margin: 17px 0 22px;
+  letter-spacing: -1px;
+}
+
+.hero h1 span {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: #b5c9ed;
+  text-decoration-thickness: 8px;
+  text-underline-offset: 7px;
+}
+
+.hero-subtitle {
+  max-width: 600px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0 22px; }
+
+.btn {
+  padding: 13px 20px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: .25s;
+  display: inline-block;
+}
+.btn-primary { background: var(--ink); color: white; box-shadow: 0 9px 25px rgba(38,59,98,.18); }
+.btn-outline { border: 1px solid rgba(38,59,98,.18); background: rgba(255,255,255,.45); }
+.btn:hover { transform: translateY(-3px); }
+
+.mini-facts { display: flex; gap: 10px; flex-wrap: wrap; }
+.mini-facts span {
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(38,59,98,.08);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.identity-card {
+  background: var(--paper);
+  padding: 22px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transform: rotate(2deg);
+  border: 1px solid rgba(38,59,98,.06);
+}
+.identity-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Patrick Hand", cursive;
+  font-size: 22px;
+  padding-bottom: 13px;
+  border-bottom: 1px dashed #b8c2d8;
+}
+.smile { background: var(--yellow); width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; }
+
+.fact { display: grid; grid-template-columns: 31px 1fr; gap: 8px; padding: 12px 0; border-bottom: 1px dashed #d9deea; }
+.fact:last-child { border-bottom: 0; }
+.fact > span { font-size: 18px; }
+.fact b { font-size: 11px; text-transform: uppercase; letter-spacing: .7px; color: var(--muted); }
+.fact p { margin-top: 3px; font-size: 12px; line-height: 1.5; }
+
+.doodle { position: absolute; font-size: 42px; font-family: "Patrick Hand", cursive; opacity: .75; }
+.doodle-heart { left: -4%; top: 15%; transform: rotate(-15deg); }
+.doodle-star { right: 1%; top: 17%; }
+.doodle-sparkle { right: 32%; bottom: 5%; }
+
+.section-heading { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+.section-heading.left { text-align: left; margin-left: 0; margin-bottom: 30px; }
+.section-heading h2 {
+  font-family: "Patrick Hand", cursive;
+  font-size: clamp(43px, 5vw, 65px);
+  line-height: 1;
+  margin: 12px 0 12px;
+}
+.section-heading h2 span { color: var(--pink-deep); }
+.section-heading p { color: var(--muted); line-height: 1.7; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr .9fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.paper-card, .quote-card, .hobby-card, .goal-paper, .contact-card {
+  box-shadow: var(--shadow);
+}
+
+.paper-card {
+  padding: 32px;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+}
+.paper-card.pink { background: var(--pink); }
+.paper-card.lavender { background: var(--lavender); }
+.card-icon { font-size: 30px; }
+.paper-card h3 { font-family: "Patrick Hand", cursive; font-size: 34px; margin: 5px 0 14px; }
+.paper-card p { color: var(--muted); line-height: 1.75; margin-bottom: 13px; font-size: 14px; }
+.signature { font-family: "Patrick Hand", cursive; font-size: 25px; margin-top: 18px; }
+.quote-card {
+  background: var(--blue);
+  border-radius: var(--radius);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.quote-card p { font-family: "Patrick Hand", cursive; font-size: 35px; line-height: 1.15; }
+.quote-mark { font-family: Georgia; font-size: 70px; line-height: .5; opacity: .35; align-self: flex-start; }
+.quote-mark.end { align-self: flex-end; }
+.butterfly { font-size: 37px; margin-top: 18px; }
+
+.vibe-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+.vibe-list span {
+  background: rgba(255,255,255,.52);
+  padding: 9px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hobbies-section { padding-top: 70px; }
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.hobby-card {
+  background: var(--paper);
+  padding: 28px 20px;
+  border-radius: 23px;
+  text-align: center;
+  border: 1px solid rgba(38,59,98,.06);
+  transition: .3s;
+}
+.hobby-card:nth-child(1) { background: var(--blue); }
+.hobby-card:nth-child(2) { background: var(--yellow); }
+.hobby-card:nth-child(3) { background: var(--lavender); }
+.hobby-card:nth-child(4) { background: var(--mint); }
+.hobby-card:nth-child(5) { background: var(--pink); }
+.hobby-card:hover { transform: translateY(-8px) rotate(-1deg); }
+.hobby-icon { font-size: 45px; margin-bottom: 13px; }
+.hobby-card h3 { font-family: "Patrick Hand", cursive; font-size: 25px; }
+.hobby-card p { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 8px; }
+
+.two-column {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: 60px;
+  align-items: start;
+}
+.interest-list { display: grid; gap: 12px; }
+.interest-item {
+  background: var(--paper);
+  padding: 17px;
+  border-radius: 17px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border: 1px solid rgba(38,59,98,.06);
+  box-shadow: 0 8px 25px rgba(54,72,112,.06);
+}
+.interest-item > span { font-size: 27px; }
+.interest-item b { display: block; }
+.interest-item small { display: block; color: var(--muted); margin-top: 3px; }
+
+.personality-box {
+  margin-top: 80px;
+  background: var(--mint);
+  border-radius: 35px;
+  padding: 45px;
+}
+.personality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.personality-grid > div {
+  background: rgba(255,255,255,.45);
+  padding: 25px;
+  border-radius: 20px;
+}
+.personality-grid span { font-size: 33px; display: block; margin-bottom: 8px; }
+.personality-grid b { display: block; font-family: "Patrick Hand", cursive; font-size: 27px; }
+.personality-grid small { color: var(--muted); line-height: 1.5; }
+
+.education-section {
+  position: relative;
+}
+.timeline {
+  width: min(850px, 100%);
+  margin: auto;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 20px;
+  bottom: 130px;
+  width: 2px;
+  background: #b7c7e5;
+}
+.timeline-item { position: relative; padding-left: 85px; margin-bottom: 30px; }
+.timeline-dot {
+  position: absolute;
+  left: 0; top: 0;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--blue);
+  display: grid; place-items: center;
+  border: 5px solid var(--cream);
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+  z-index: 2;
+}
+.timeline-content {
+  background: var(--paper);
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(38,59,98,.06);
+}
+.year { color: var(--pink-deep); font-weight: 800; font-size: 12px; }
+.timeline-content h3 { font-family: "Patrick Hand", cursive; font-size: 31px; margin: 4px 0; }
+.timeline-content p { color: var(--muted); }
+.school { font-weight: 700; margin-bottom: 5px; }
+.education-note {
+  margin: 35px 0 0 85px;
+  padding: 20px;
+  background: var(--yellow);
+  border-radius: 20px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  width: fit-content;
+}
+.education-note p { font-family: "Patrick Hand", cursive; font-size: 23px; }
+
+.goal-paper {
+  background: linear-gradient(135deg, var(--pink), var(--lavender));
+  border-radius: 35px;
+  padding: 65px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.goal-paper::before, .goal-paper::after {
+  content: "✦";
+  position: absolute;
+  font-size: 100px;
+  opacity: .1;
+}
+.goal-paper::before { left: 25px; top: 15px; }
+.goal-paper::after { right: 30px; bottom: 5px; }
+.goal-paper > p { max-width: 850px; margin: auto; line-height: 1.9; color: var(--muted); }
+.dream-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 38px;
+  text-align: left;
+}
+.dream-steps > div {
+  background: rgba(255,255,255,.52);
+  padding: 18px;
+  border-radius: 18px;
+}
+.dream-steps span { font-size: 12px; font-weight: 900; color: var(--pink-deep); }
+.dream-steps b { display: block; margin: 7px 0; }
+.dream-steps small { color: var(--muted); line-height: 1.45; }
+
+.contact-section { padding-bottom: 110px; }
+.contact-card {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  background: var(--blue);
+  border-radius: 38px;
+  overflow: hidden;
+}
+.contact-left { padding: 60px; }
+.contact-left h2 { font-family: "Patrick Hand", cursive; font-size: 62px; line-height: .95; margin: 15px 0 20px; }
+.contact-left h2 span { color: var(--pink-deep); }
+.contact-left p { max-width: 500px; color: var(--muted); line-height: 1.7; }
+.contact-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+.social-btn { background: var(--paper); padding: 12px 17px; border-radius: 999px; font-weight: 700; transition: .25s; }
+.social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+
+.contact-right {
+  padding: 50px;
+  background: rgba(255,255,255,.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+.contact-detail {
+  background: rgba(255,255,255,.55);
+  padding: 17px;
+  border-radius: 17px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+.contact-detail span { font-size: 25px; }
+.contact-detail small { display: block; color: var(--muted); }
+.contact-detail b { font-size: 13px; word-break: break-word; }
+.contact-sticker {
+  font-family: "Patrick Hand", cursive;
+  text-align: center;
+  font-size: 44px;
+  margin-top: 10px;
+}
+.contact-sticker small { font-size: 20px; line-height: 1; }
+
+footer {
+  padding: 28px 6%;
+  background: #9eb8e7;
+  color: #263b62;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 20px;
+}
+
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: .3s;
+  z-index: 900;
+}
+.back-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 25px;
+  transform: translate(-50%, 80px);
+  background: var(--ink);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  opacity: 0;
+  transition: .4s;
+  z-index: 2000;
+  font-size: 13px;
+}
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+.cursor-heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 3000;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 230px 1fr; }
+  .identity-card { grid-column: 1 / -1; transform: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 20px; }
+  .identity-top { grid-column: 1 / -1; }
+  .hobby-grid { grid-template-columns: repeat(3, 1fr); }
+  .about-grid { grid-template-columns: 1fr 1fr; }
+  .paper-card:first-child { grid-row: span 2; }
+  .dream-steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .navbar { height: 68px; }
+  .menu-toggle { display: block; }
+  nav {
+    position: absolute;
+    top: 68px; left: 5%; right: 5%;
+    background: var(--paper);
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  nav.open { display: flex; }
+  nav a, .theme-toggle { text-align: center; }
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 55px; }
+  .hero-photo-wrap { width: 230px; margin: auto; }
+  .photo-placeholder { height: 280px; }
+  .hero-content { order: 2; }
+  .identity-card { order: 3; display: block; text-align: left; }
+  .hero-buttons, .mini-facts { justify-content: center; }
+  .doodle { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .paper-card:first-child { grid-row: auto; }
+  .hobby-grid { grid-template-columns: 1fr 1fr; }
+  .two-column { grid-template-columns: 1fr; gap: 20px; }
+  .personality-grid { grid-template-columns: 1fr; }
+  .personality-box { padding: 30px 20px; }
+  .dream-steps { grid-template-columns: 1fr; }
+  .goal-paper { padding: 45px 25px; }
+  .contact-card { grid-template-columns: 1fr; }
+  .contact-left, .contact-right { padding: 35px 25px; }
+  .contact-left h2 { font-size: 51px; }
+  footer { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .section { width: 92%; padding: 75px 0; }
+  .hobby-grid { grid-template-columns: 1fr; }
+  .timeline-item { padding-left: 68px; }
+  .timeline::before { left: 25px; }
+  .education-note { margin-left: 68px; }
+  .identity-card { padding: 18px; }
+}
