@@ -632,22 +632,3 @@ footer {
   .contact-left h2 { font-size: 51px; }
   footer { flex-direction: column; text-align: center; }
 }
-
-@media (max-width: 480px) {
-  .section { width: 92%; padding: 75px 0; }
-  .hobby-grid { grid-template-columns: 1fr; }
-  .timeline-item { padding-left: 68px; }
-  .timeline::before { left: 25px; }
-  .education-note { margin-left: 68px; }
-  .identity-card { padding: 18px; }
-}
-.social-link a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #1DB954;
-    font-size: 18px;
-}
-
-.social-link a:hover {
-    text-decoration: underline;
-}
