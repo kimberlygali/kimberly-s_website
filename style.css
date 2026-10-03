@@ -641,3 +641,13 @@ footer {
   .education-note { margin-left: 68px; }
   .identity-card { padding: 18px; }
 }
+.social-link a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1DB954;
+    font-size: 18px;
+}
+
+.social-link a:hover {
+    text-decoration: underline;
+}
