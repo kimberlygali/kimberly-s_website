@@ -632,3 +632,21 @@ footer {
   .contact-left h2 { font-size: 51px; }
   footer { flex-direction: column; text-align: center; }
 }
+
+/* Spotify button */
+.contact-buttons .spotify-link {
+    display: inline-block;
+    padding: 12px 20px;
+    background: white;
+    color: #284064;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.contact-buttons .spotify-link:hover {
+    background: #1DB954;
+    color: white;
+    transform: translateY(-2px);
+}
